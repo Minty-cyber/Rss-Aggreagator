@@ -1,12 +1,19 @@
 package main
 
 import (
-	"fmt",
+	"fmt"
 	"os"
+	"log"
+
 )
 
 func main() {
 	fmt.Println("Hello world")
 
-	os.Getenv("PORT")
+	portString := os.Getenv("PORT")
+	if portString == "" {
+		log.Fatal("PORT is not available")
+	}
+
+	fmt.Println("Port:", portString)
 }
